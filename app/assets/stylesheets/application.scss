@@ -116,6 +116,7 @@ body {
     .buttons-container {
       display: flex;
       .remove-btn {
+        color: red;
         cursor: pointer;
         margin-right: 10px;
         background: transparent;
@@ -208,4 +209,14 @@ body {
   .error {
     color: red;
   }
+}
+
+.task_expire_at {
+  position: absolute; right: 65px; top: 13px;
+  font-size: 17px;
+}
+ .custom-select {
+  width: 24%;
+  height: 20%;
+  font-size: 16px;
 }

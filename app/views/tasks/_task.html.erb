@@ -1,5 +1,6 @@
 <li class="task-item alert <%= task.status.to_i.zero? ? 'alert-secondary' : 'alert-success'%>" role="alert">
   <p class="task-title" title="<%= task.description %>"><%= task.title %></p>
+  <p class="task_expire_at">	(expire at: <%= task.expire_at.to_date %>) </p>
   <div class="buttons-container">
     <%= button_tag 'X', 'data-url' => task_path(task), 'data-remote' => true, 'data-method' => :delete, class: 'remove-btn'%>
     <%= form_for task, remote: true do |f| %>

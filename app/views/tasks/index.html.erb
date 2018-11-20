@@ -5,8 +5,10 @@
 </button>
 <%= form_tag tasks_path, method: :get, class: 'search-form', remote: true do |f| %>
   <div class="filters-container">
-    <%= select_tag :status, options_for_select(Task.statuses.keys, params[:status]), prompt: 'All' %>
-    <%= select_tag :expired, options_for_select(['Expired', 'Feature'], params[:status]), prompt: 'All' %>
+    <%= select_tag :status, options_for_select(Task.statuses.keys, params[:status]), prompt: 'All', class: 'browser-default custom-select' %>
+    <%= select_tag :expired, options_for_select(['Expired', 'Future'], params[:status]), prompt: 'All', class: 'browser-default custom-select' %>
+    <%= select_tag :by_title, options_for_select(['Asc', 'Desc'], params[:by_title]), prompt: 'by title', class: 'browser-default custom-select' %>
+    <%= select_tag :by_expire, options_for_select(['Asc', 'Desc'], params[:by_expire]), prompt: 'by expire', class: 'browser-default custom-select' %>  
   </div>
   <div class="search-input-container">
     <div class="input-group">
