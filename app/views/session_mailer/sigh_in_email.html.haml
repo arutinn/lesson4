@@ -1,0 +1,5 @@
+%h2 Hi #{@user.name}!
+%p Your sigh in information:
+Last time sigh in: #{@user.last_seen_at.to_formatted_s(:long)}
+Your last IP: #{@user.last_ip}
+Your last location: #{@user.last_location}
