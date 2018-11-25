@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_161031) do
+ActiveRecord::Schema.define(version: 2018_11_21_202523) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 2018_11_21_161031) do
     t.datetime "last_seen_at"
     t.string "last_ip"
     t.string "last_location"
+    t.string "shared_tasks"
+  end
+
+  create_table "users_tasks", force: :cascade do |t|
+    t.integer "owner_id"
+    t.integer "user_id"
   end
 
 end

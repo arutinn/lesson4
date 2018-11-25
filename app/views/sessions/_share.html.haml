@@ -1,0 +1,4 @@
+%h3 Share your task list to this user:
+= form_for byebug @current_user, method: :patch, remote: true do |f|
+  = f.select :shared_tasks, User.pluck(:name), {}, { class: 'browser-default custom-select' }
+  = f.submit :Share, class: 'btn btn-primary'

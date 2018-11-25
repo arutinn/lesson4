@@ -3,7 +3,16 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks = Task.for_dashboard(params).where(user_id: params[:user_id] || current_user)
+    @user = User.find_by(id: params[:user_id])
+    unless params[:user_id].nil?
+      if @user.shared_tasks.include? @current_user.name.to_s
+        @tasks = Task.for_dashboard(params).where(user_id: params[:user_id] || current_user)
+      else
+        current_user_tasks
+      end
+    else
+      current_user_tasks
+    end
   end
 
   def create
@@ -24,6 +33,10 @@ class TasksController < ApplicationController
 end
 
   private
+
+  def current_user_tasks
+    @tasks = Task.for_dashboard(params).where(user_id: current_user)
+  end
 
   def task
     @task ||= current_user.tasks.find(params[:id])

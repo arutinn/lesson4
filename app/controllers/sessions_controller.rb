@@ -16,6 +16,15 @@ class SessionsController < ApplicationController
     end
   end
 
+  def edit
+   # @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to new_session_path
@@ -28,7 +37,7 @@ class SessionsController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :password, :email)
+    params.require(:user).permit(:name, :password, :email, :shared_tasks)
   end
 
   def set_last_seen

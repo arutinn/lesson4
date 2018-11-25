@@ -1,16 +1,16 @@
 <div class="form-container">
   <%= form_for @user, url: session_path, remote: true, method: :post do |f| %>
     <div class="input-group">
+      <%= f.email_field :email, placeholder: 'Email', class: 'form-control' %>
+      <%= @user.errors[:email].first %>
+    </div>
+    <div class="input-group">
       <%= f.text_field :name, placeholder: 'Username', class: 'form-control' %>
       <%= @user.errors[:name].first %>
     </div>
     <div class="input-group">
       <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
       <%= @user.errors[:password].first %>
-    </div>
-    <div class="input-group">
-      <%= f.email_field :email, placeholder: 'Email', class: 'form-control' %>
-      <%= @user.errors[:email].first %>
     </div>
     <div><%= f.submit 'Sign Up', class: 'btn btn-primary' %></div>
   <% end %>

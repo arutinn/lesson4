@@ -1,5 +1,5 @@
 <h1 class="display-2 text-center">TodoList</h1>
-<p class="lead text-center">Welcome to my todoList applications</p>
+<p class="lead text-center">Welcome to my todoList application</p>
 <button id="open-btn" type="button" class="btn btn-primary open" onclick="openPopup()">
   ADD TASK
 </button>
@@ -22,4 +22,8 @@
     <%= render partial: 'task', collection: @tasks %>
   </ul>
   <%= will_paginate @tasks %>
+</div>
+
+<div class="share">
+  <%= render '/sessions/share' %>
 </div>
