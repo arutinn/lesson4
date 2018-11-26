@@ -5,7 +5,7 @@ class TasksController < ApplicationController
     @task = Task.new
     @user = User.find_by(id: params[:user_id])
     unless params[:user_id].nil?
-      if @user.shared_tasks.include? @current_user.name.to_s
+      if @current_user.shared_tasks.include? @user.name.to_s
         @tasks = Task.for_dashboard(params).where(user_id: params[:user_id] || current_user)
       else
         current_user_tasks

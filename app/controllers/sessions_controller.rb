@@ -17,11 +17,12 @@ class SessionsController < ApplicationController
   end
 
   def edit
-   # @user = User.find(params[:id])
+    @user = User.first #.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
+    #@user = User.find_by(name: user_params[:name])
     @user.update_attributes(user_params)
   end
 
